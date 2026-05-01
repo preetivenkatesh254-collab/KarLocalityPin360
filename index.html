@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}Home - LocalityPin360 | Local Services Marketplace{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 100px 0; text-align: center;">
+    <div class="container">
+        <h1 class="display-3 fw-bold mb-3">Welcome to LocalityPin360</h1>
+        <p class="lead mb-4">Find skilled professionals for all your service needs - Plumbing, Electrical, Tutoring & More</p>
+        
+        <!-- Search Bar -->
+        <form action="/search" method="GET" class="mb-4">
+            <div class="input-group input-group-lg mx-auto" style="max-width: 600px;">
+                <input type="text" name="q" class="form-control" placeholder="Search for services, workers..." required>
+                <button class="btn btn-light" type="submit"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </form>
+
+        <div class="mt-4">
+            <a href="/services" class="btn btn-light btn-lg me-2">Browse All Services</a>
+            <a href="#categories" class="btn btn-outline-light btn-lg">Explore Categories</a>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section id="categories" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">What are you looking for?</h2>
+        <div class="row g-4">
+            {% for category in categories %}
+            <div class="col-md-4 col-lg-2 mb-3">
+                <a href="/services?category={{ category.name }}" class="text-decoration-none">
+                    <div class="category-card text-center p-4 bg-white rounded shadow-sm hover-lift">
+                        <div class="category-icon fs-1 mb-3">{{ category.icon }}</div>
+                        <h5 class="fw-bold text-dark">{{ category.name }}</h5>
+                        <p class="text-muted small">Browse services</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="/services" class="btn btn-primary btn-lg">View All Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Workers Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Featured Service Providers</h2>
+        <div class="row g-4">
+            {% for worker in featured_workers %}
+            <div class="col-md-6 col-lg-4">
+                <div class="worker-card card shadow-sm h-100 border-0 hover-card">
+                    <div class="card-img-top position-relative" style="height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ worker.name }}</h5>
+                        <p class="text-muted mb-2"><i class="fas fa-briefcase"></i> {{ worker.service }}</p>
+                        <p class="text-muted mb-2"><i class="fas fa-clock"></i> {{ worker.experience }}</p>
+                        <p class="text-muted mb-3"><i class="fas fa-map-marker-alt"></i> {{ worker.location }}</p>
+                        
+                        <div class="mb-3">
+                            <span class="badge bg-warning text-dark">
+                                <i class="fas fa-star"></i> {{ worker.rating }} ({{ worker.reviews_count }} reviews)
+                            </span>
+                        </div>
+                        
+                        <p class="text-success fw-bold mb-3">{{ worker.price_per_job }}</p>
+                        
+                        <a href="/worker/{{ worker.id }}" class="btn btn-primary w-100 mb-2">View Profile</a>
+                        <a href="/booking/{{ worker.id }}" class="btn btn-outline-primary w-100">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-5">
+            <a href="/services" class="btn btn-lg btn-outline-primary">View More Service Providers</a>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">How LocalityPin360 Works</h2>
+        <div class="row text-center">
+            <div class="col-md-3 mb-4">
+                <div class="step-number rounded-circle bg-primary text-white mx-auto mb-3" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">1</div>
+                <h5 class="fw-bold">Search</h5>
+                <p class="text-muted">Browse services and find qualified professionals</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="step-number rounded-circle bg-primary text-white mx-auto mb-3" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">2</div>
+                <h5 class="fw-bold">Compare</h5>
+                <p class="text-muted">Check ratings, prices, and reviews</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="step-number rounded-circle bg-primary text-white mx-auto mb-3" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">3</div>
+                <h5 class="fw-bold">Book</h5>
+                <p class="text-muted">Schedule a service with just a few clicks</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="step-number rounded-circle bg-primary text-white mx-auto mb-3" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">4</div>
+                <h5 class="fw-bold">Review</h5>
+                <p class="text-muted">Share your experience and help others</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2 class="fw-bold mb-3">Need a Service Provider?</h2>
+        <p class="lead mb-4">Get in touch with skilled professionals in your area</p>
+        <a href="/services" class="btn btn-light btn-lg">Get Started</a>
+    </div>
+</section>
+
+<style>
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.hover-card {
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+.category-icon {
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+</style>
+{% endblock %}
