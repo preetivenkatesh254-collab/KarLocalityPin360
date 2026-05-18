@@ -1,0 +1,28 @@
+{
+  "name": "local-service-finder",
+  "version": "1.0.0",
+  "description": "A beautiful website to find local services - Electricians, Plumbers, Tutors, etc.",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 -o",
+    "dev": "http-server -p 8000",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "service-finder",
+    "local-services",
+    "electrician",
+    "plumber",
+    "tutor",
+    "responsive-design"
+  ],
+  "author": "You",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/local-service-finder"
+  }
+}

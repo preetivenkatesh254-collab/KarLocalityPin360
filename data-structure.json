@@ -1,0 +1,119 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Service Provider Name",
+      "category": "electrician",
+      "phone": "9876543210",
+      "email": "provider@email.com",
+      "rating": 4.8,
+      "reviews": 45,
+      "location": "Davangere",
+      "experience": "12 years",
+      "description": "Professional service description",
+      "image": "⚡",
+      "isVerified": true,
+      "isAvailable": true,
+      "responseTime": "30 mins",
+      "serviceArea": ["Davangere", "Kolar"],
+      "specializations": ["Residential", "Commercial"],
+      "createdAt": "2024-01-15",
+      "updatedAt": "2026-04-30"
+    }
+  ],
+  "categories": [
+    {
+      "id": "electrician",
+      "name": "Electricians",
+      "icon": "⚡",
+      "count": 5
+    },
+    {
+      "id": "plumber",
+      "name": "Plumbers",
+      "icon": "🔧",
+      "count": 3
+    },
+    {
+      "id": "tutor",
+      "name": "Tutors",
+      "icon": "📚",
+      "count": 4
+    },
+    {
+      "id": "carpenter",
+      "name": "Carpenters",
+      "icon": "🪵",
+      "count": 2
+    },
+    {
+      "id": "mechanic",
+      "name": "Mechanics",
+      "icon": "🔩",
+      "count": 3
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Davangere",
+      "serviceCount": 10
+    },
+    {
+      "id": 2,
+      "name": "Bangalore",
+      "serviceCount": 8
+    },
+    {
+      "id": 3,
+      "name": "Mysore",
+      "serviceCount": 6
+    },
+    {
+      "id": 4,
+      "name": "Kolar",
+      "serviceCount": 4
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "serviceProviderId": 1,
+      "rating": 5,
+      "comment": "Excellent service! Very professional and quick.",
+      "reviewerName": "John Doe",
+      "reviewDate": "2026-04-25",
+      "verified": true
+    },
+    {
+      "id": 2,
+      "serviceProviderId": 1,
+      "rating": 4,
+      "comment": "Good work, reasonable pricing.",
+      "reviewerName": "Jane Smith",
+      "reviewDate": "2026-04-20",
+      "verified": true
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "User Name",
+      "email": "user@email.com",
+      "phone": "9123456789",
+      "location": "Davangere",
+      "savedServices": [1, 2, 3],
+      "role": "customer",
+      "createdAt": "2026-01-01"
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "admin@localfinder.com",
+      "role": "admin",
+      "permissions": ["manage_services", "manage_users", "view_analytics"]
+    }
+  ]
+}
